@@ -24,7 +24,7 @@
             text-align: center;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             padding: 5px;
-            z-index: 10;
+            z-index: 5;
             background-color: aliceblue;
             padding: 5px;
             border: 1px solid rgb(0, 0, 0);
@@ -56,7 +56,6 @@ function initMap() {
 
     const A1marker = new google.maps.Marker({
         position: {lat: 49.201, lng: -122.812},
-        icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
         map,
         title: "A1 Donair",
     });
@@ -64,10 +63,10 @@ function initMap() {
     A1marker.addListener("click", () => {
         A1infowindow.open({
         anchor: A1marker,
-        map: "map",
+        map,
         shouldFocus: false,
-        })
-    })
+        });
+    });
 
     const Bcontentstring =
         '<div id="content">' +
@@ -85,25 +84,24 @@ function initMap() {
 
     const Bmarker = new google.maps.Marker({
         position: {lat: 49.205, lng: -122.892},
-        icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
-        map: "map",
+        map,
         title: "Bonfire Beach",
-    })
+    });
 
     Bmarker.addListener("click", () => {
         Binfowindow.open({
         anchor: Bmarker,
         map,
         shouldFocus: false,
-        })
-    })
+        });
+    });
 
     const Tmarker = new google.maps.Marker({
         position: {lat: 49.188, lng: -122.797},
         map,
-        title: "The Taphouse"
+        title: "The Taphouse",
 
-})
+});
 
 
 }
