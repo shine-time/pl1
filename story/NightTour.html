@@ -46,6 +46,28 @@ const A1marker = new google.maps.Marker({
     title: "A1 Donair"
 });
 
+const A1contentstring =
+    '<div id="content">' +
+    '<div id="siteNotice">' +
+    "</div>" + 
+    '<h1 id="firstHeading" class="firstHeading">A1 Coffee & Donair</h1>' +
+    '<div id="bodyContent">' +
+    "<p>Finish the night off at A1 donair with a order of their #17 special fries</p>" +
+    "</div>" +
+    "</div>";
+
+const A1infowindow = new google.maps.Infowindow({
+    content: A1contentstring,
+});
+
+A1marker.addListener("click", () => {
+    A1infowindow.open({
+    anchor: A1marker,
+    map,
+    shouldFocus: false,
+    })
+})
+
 const Bmarker = new google.maps.Marker({
     position: {lat: 49.205, lng: -122.892},
     map,
@@ -58,6 +80,8 @@ constTmarker = new google.maps.Marker({
     title: "The Taphouse"
 
 })
+
+
 }
     </script>
 
