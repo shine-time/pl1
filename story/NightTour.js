@@ -32,7 +32,7 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
     travelMode: google.maps.travelMode[Driving],
     })
     .then((response) => {
-        directionsRenderer,setDirections(response);
+        directionsRenderer,setDirections(selectedMode);
     })
     .catch((e) => window.alert("Directions request failed due to " + status));
   }
