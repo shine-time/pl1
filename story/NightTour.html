@@ -38,8 +38,90 @@ function initMap() {
         center: { lat: 49.197, lng: -122.840 }, 
         zoom: 13,
         mapTypeId: "terrain",
-    });
+    
+    styles: [
+      { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
+      { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
+      { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
+      {
+        featureType: "administrative.locality",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#d59563" }],
+      },
+      {
+        featureType: "poi",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#d59563" }],
+      },
+      {
+        featureType: "poi.park",
+        elementType: "geometry",
+        stylers: [{ color: "#263c3f" }],
+      },
+      {
+        featureType: "poi.park",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#6b9a76" }],
+      },
+      {
+        featureType: "road",
+        elementType: "geometry",
+        stylers: [{ color: "#38414e" }],
+      },
+      {
+        featureType: "road",
+        elementType: "geometry.stroke",
+        stylers: [{ color: "#212a37" }],
+      },
+      {
+        featureType: "road",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#9ca5b3" }],
+      },
+      {
+        featureType: "road.highway",
+        elementType: "geometry",
+        stylers: [{ color: "#746855" }],
+      },
+      {
+        featureType: "road.highway",
+        elementType: "geometry.stroke",
+        stylers: [{ color: "#1f2835" }],
+      },
+      {
+        featureType: "road.highway",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#f3d19c" }],
+      },
+      {
+        featureType: "transit",
+        elementType: "geometry",
+        stylers: [{ color: "#2f3948" }],
+      },
+      {
+        featureType: "transit.station",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#d59563" }],
+      },
+      {
+        featureType: "water",
+        elementType: "geometry",
+        stylers: [{ color: "#17263c" }],
+      },
+      {
+        featureType: "water",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#515c6d" }],
+      },
+      {
+        featureType: "water",
+        elementType: "labels.text.stroke",
+        stylers: [{ color: "#17263c" }],
+      },
+    ],
+});
 
+//Content for the pop up window
     const A1contentString =
         '<div id="content">' +
         '<div id="siteNotice">' +
@@ -49,18 +131,18 @@ function initMap() {
         "<p>Grab a late dinner with an order of the #17 special fries</p>" +
         "</div>" +
         "</div>";
-
+//Creates infowindow
     const A1infowindow = new google.maps.InfoWindow({
         content: A1contentString,
     });
-
+//Creates marker
     const A1marker = new google.maps.Marker({
         position: {lat: 49.201, lng: -122.812},
         map,
         title: "A1 Donair",
         label: "B",
     });
-
+//Enables pop up info window
     A1marker.addListener("click", () => {
         A1infowindow.open({
         anchor: A1marker,
@@ -126,6 +208,7 @@ const TcontentString =
         shouldFocus: false,
         });
     });
+
 
 }
     </script>
