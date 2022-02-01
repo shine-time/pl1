@@ -10,7 +10,7 @@ function initMap() {
       zoom: 10,
       mapTypeId: "satellite",
     }) ;
-    , 
+     
     directionsRenderer.setMap(map);
   calculateAndDisplayRoute(directionsService, directionsRenderer);
   document.getElementById("mode").addEventListener("change", () => {
@@ -23,7 +23,16 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
 
     directionsService
         .route({
-            origin: {} 
-
-        })
-    }
+            origin: {lat: 49.20458291463513, lng: -122.87405956729776}, //Scott Road Skytrain Station
+            destination: {lat: 49.19913928022542, lng: -122.8129474305355}, //A1 Donair
+            waypoints: [
+                {location: {lat: 49.20523768324064, lng: -122.89255171704465}} //Beach
+            ], 
+        
+    travelMode: google.maps.travelMode[Driving],
+    })
+    .then((response) => {
+        directionsRenderer,setDirections(response);
+    })
+    .catch((e) => window.alert("Directions request failed due to " + status));
+  }
