@@ -32,6 +32,7 @@
 
     </style>
     <script>
+
 function initMap() {
     const map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: 49.197, lng: -122.840 }, 
@@ -56,7 +57,7 @@ function initMap() {
     const A1marker = new google.maps.Marker({
         position: {lat: 49.201, lng: -122.812},
         map,
-        title: "A1 Donair"
+        title: "A1 Donair",
     });
 
     A1marker.addListener("click", () => {
@@ -84,7 +85,7 @@ function initMap() {
     const Bmarker = new google.maps.Marker({
         position: {lat: 49.205, lng: -122.892},
         map,
-        title: "Bonfire Beach"
+        title: "Bonfire Beach",
     })
 
     Bmarker.addListener("click", () => {
@@ -95,8 +96,7 @@ function initMap() {
         })
     })
 
-
-    constTmarker = new google.maps.Marker({
+    const Tmarker = new google.maps.Marker({
         position: {lat: 49.188, lng: -122.797},
         map,
         title: "The Taphouse"
