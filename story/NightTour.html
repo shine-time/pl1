@@ -33,51 +33,73 @@
     </style>
     <script>
 function initMap() {
-const map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 49.197, lng: -122.840 }, 
-    zoom: 13,
-    mapTypeId: "terrain",
-});
+    const map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 49.197, lng: -122.840 }, 
+        zoom: 13,
+        mapTypeId: "terrain",
+    });
 
+    const A1contentstring =
+        '<div id="content">' +
+        '<div id="siteNotice">' +
+        "</div>" + 
+        '<h1 id="firstHeading" class="firstHeading">A1 Coffee & Donair</h1>' +
+        '<div id="bodyContent">' +
+        "<p>Grab a late dinner with an order of the #17 special fries</p>" +
+        "</div>" +
+        "</div>";
 
-const A1marker = new google.maps.Marker({
-    position: {lat: 49.201, lng: -122.812},
-    map,
-    title: "A1 Donair"
-});
+    const A1infowindow = new google.maps.Infowindow({
+        content: A1contentstring,
+    });
 
-const A1contentstring =
-    '<div id="content">' +
-    '<div id="siteNotice">' +
-    "</div>" + 
-    '<h1 id="firstHeading" class="firstHeading">A1 Coffee & Donair</h1>' +
-    '<div id="bodyContent">' +
-    "<p>Finish the night off at A1 donair with a order of their #17 special fries</p>" +
-    "</div>" +
-    "</div>";
+    const A1marker = new google.maps.Marker({
+        position: {lat: 49.201, lng: -122.812},
+        map,
+        title: "A1 Donair"
+    });
 
-const A1infowindow = new google.maps.Infowindow({
-    content: A1contentstring,
-});
-
-A1marker.addListener("click", () => {
-    A1infowindow.open({
-    anchor: A1marker,
-    map,
-    shouldFocus: false,
+    A1marker.addListener("click", () => {
+        A1infowindow.open({
+        anchor: A1marker,
+        map,
+        shouldFocus: false,
+        })
     })
-})
 
-const Bmarker = new google.maps.Marker({
-    position: {lat: 49.205, lng: -122.892},
-    map,
-    title: "Bonfire Beach"
-})
+    const Bcontentstring =
+        '<div id="content">' +
+        '<div id="siteNotice">' +
+        "</div>" + 
+        '<h1 id="firstHeading" class="firstHeading">Bonfire Beach</h1>' +
+        '<div id="bodyContent">' +
+        "<p>Head to the beach under the bridge and light a bonfire</p>" +
+        "</div>" +
+        "</div>";
 
-constTmarker = new google.maps.Marker({
-    position: {lat: 49.188, lng: -122.797},
-    map,
-    title: "The Taphouse"
+    const Binfowindow = new google.maps.Infowindow({
+        content: A1contentstring,
+    });
+
+    const Bmarker = new google.maps.Marker({
+        position: {lat: 49.205, lng: -122.892},
+        map,
+        title: "Bonfire Beach"
+    })
+
+    Bmarker.addListener("click", () => {
+        A1infowindow.open({
+        anchor: A1marker,
+        map,
+        shouldFocus: false,
+        })
+    })
+
+
+    constTmarker = new google.maps.Marker({
+        position: {lat: 49.188, lng: -122.797},
+        map,
+        title: "The Taphouse"
 
 })
 
