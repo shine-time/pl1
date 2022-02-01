@@ -64,7 +64,7 @@ function initMap() {
     A1marker.addListener("click", () => {
         A1infowindow.open({
         anchor: A1marker,
-        map,
+        map: "map",
         shouldFocus: false,
         })
     })
@@ -86,7 +86,7 @@ function initMap() {
     const Bmarker = new google.maps.Marker({
         position: {lat: 49.205, lng: -122.892},
         icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
-        map,
+        map: "map",
         title: "Bonfire Beach",
     })
 
@@ -119,8 +119,8 @@ function initMap() {
 
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE&callback=initMap&v=weekly"
-      defer>
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE&callback=initMap&v=weekly"
+    defer>
     </script>
 </body>
 </html>
