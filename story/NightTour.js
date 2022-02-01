@@ -4,8 +4,7 @@ function initMap() {
     //https://developers.google.com/maps/documentation/javascript/examples/directions-travel-modes
     const directionsService = new google.maps.DirectionsService();
     const directionsRenderer = new google.maps.DirectionsRenderer();
-
-    map = new google.maps.Map(document.getElementById("map"), {
+    const map = new google.maps.Map(document.getElementById("map"), {
       /*center on Brownsville Bar Park*/
       center: { lat:  49.205, lng: -122.892 }, 
       zoom: 10,
