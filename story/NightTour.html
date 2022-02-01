@@ -58,6 +58,7 @@ function initMap() {
         position: {lat: 49.201, lng: -122.812},
         map,
         title: "A1 Donair",
+        label: "B",
     });
 
     A1marker.addListener("click", () => {
@@ -86,6 +87,7 @@ function initMap() {
         position: {lat: 49.205, lng: -122.892},
         map,
         title: "Bonfire Beach",
+        label: "C"
     });
 
     Bmarker.addListener("click", () => {
@@ -96,13 +98,34 @@ function initMap() {
         });
     });
 
+const TcontentString =
+        '<div id="content">' +
+        '<div id="siteNotice">' +
+        "</div>" + 
+        '<h1 id="firstHeading" class="firstHeading">Bonfire Beach</h1>' +
+        '<div id="bodyContent">' +
+        "<p>After a long night of dancing with friends</p>" +
+        "</div>" +
+        "</div>";
+
+    const Tinfowindow = new google.maps.InfoWindow({
+        content: TcontentString,
+    });
+
     const Tmarker = new google.maps.Marker({
         position: {lat: 49.188, lng: -122.797},
         map,
         title: "The Taphouse",
+        label: "A",
+    });
 
-});
-
+    Tmarker.addListener("click", () => {
+        Tinfowindow.open({
+        anchor: Tmarker,
+        map,
+        shouldFocus: false,
+        });
+    });
 
 }
     </script>
