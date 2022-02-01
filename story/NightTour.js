@@ -6,7 +6,7 @@ function initMap() {
     const directionsRenderer = new google.maps.DirectionsRenderer();
     const map = new google.maps.Map(document.getElementById("map"), {
       /*center on Brownsville Bar Park*/
-      center: { lat:  49.205289036624684, lng: -122.89254597188976 }, 
+      center: { lat: 49.19766565752146, lng: -122.84087004710894 }, 
       zoom: 15,
       mapTypeId: "terrain",
     }) ;
