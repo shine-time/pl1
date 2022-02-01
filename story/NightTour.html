@@ -4,6 +4,7 @@
   <head>
     <title>Night Activities in Surrey, BC</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="NightTour.js"></script>
     <style>
         #map {
         height: 100%
@@ -18,24 +19,27 @@
         
         #title {
             position: absolute;
-            top: 20px;
+            top: 5px;
+            left: 50px;
             text-align: center;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            padding: 10px;
+            padding: 5px;   
         }
+
+
     </style>
-    <script src="./index.js"></script>
+
   </head>
   <body>
 <!--Based on https://developers.google.com/maps/documentation/javascript/examples/directions-travel-modes#maps_directions_travel_modes-html-->      
-<div>
+<div id='title'>
     <h1>Night Activities in Surrey, BC</h1>
 </div>    
     <div id="map"></div>
 
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&v=weekly"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE&callback=initMap&v=weekly"
       async
     ></script>
   </body>
