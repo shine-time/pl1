@@ -11,8 +11,18 @@ function initMap() {
       mapTypeId: "terrain",
     }) ;
      
+    directionsRenderer.setMap(map);
+  calculateAndDisplayRoute(directionsService, directionsRenderer);
+  document.getElementById("mode").addEventListener("change", () => {
+    calculateAndDisplayRoute(directionsService, directionsRenderer);
+  });
+}
 
-    
+function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+    const selectedMode = document.getElementById("mode").value;
+
+    directionsService
+        .route({
             origin: {lat: 49.204, lng: -122.874}, //Scott Road Skytrain Station
             destination: {lat: 49.199, lng: -122.812}, //A1 Donair
             waypoints: [
