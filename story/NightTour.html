@@ -4,7 +4,6 @@
 <head>
     <title>Night Activities in Surrey, BC</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script src="NightTour.js"></script>
     <style>
         #map {
         height: 100%;
@@ -21,15 +20,25 @@
         #title {
             position: absolute;
             top: 5px;
-            left: 50%;
+            left: 35%;
             text-align: center;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             padding: 5px;
-            z-index: 10;   
+            z-index: 10;
+            background-color: aliceblue;
+            padding: 5px;
+            border: 1px solid rgb(0, 0, 0);
         }
 
-
     </style>
+    <script>
+    function initMap() {
+    const map = new google.maps.Map(document.getElementById("map"), {
+      center: { lat: 49.197, lng: -122.840 }, 
+      zoom: 15,
+      mapTypeId: "terrain",
+    }) ;
+    </script>
 
 </head>
 <body>

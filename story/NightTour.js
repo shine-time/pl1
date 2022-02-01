@@ -6,33 +6,14 @@ function initMap() {
     const directionsRenderer = new google.maps.DirectionsRenderer();
     const map = new google.maps.Map(document.getElementById("map"), {
       /*center on Brownsville Bar Park*/
-      center: { lat: 49.19766565752146, lng: -122.84087004710894 }, 
+      center: { lat: 49.197, lng: -122.840 }, 
       zoom: 15,
       mapTypeId: "terrain",
     }) ;
      
-    directionsRenderer.setMap(map);
-  calculateAndDisplayRoute(directionsService, directionsRenderer);
-  document.getElementById("mode").addEventListener("change", () => {
-    calculateAndDisplayRoute(directionsService, directionsRenderer);
-  });
-}
 
-function calculateAndDisplayRoute(directionsService, directionsRenderer) {
-    const selectedMode = document.getElementById("mode").value;
-
-    directionsService
-        .route({
-            origin: {lat: 49.20458291463513, lng: -122.87405956729776}, //Scott Road Skytrain Station
-            destination: {lat: 49.19913928022542, lng: -122.8129474305355}, //A1 Donair
+    
+            origin: {lat: 49.204, lng: -122.874}, //Scott Road Skytrain Station
+            destination: {lat: 49.199, lng: -122.812}, //A1 Donair
             waypoints: [
-                {location: {lat: 49.20523768324064, lng: -122.89255171704465}} //Beach
-            ], 
-        
-    travelMode: google.maps.travelMode[Driving],
-    })
-    .then((response) => {
-        directionsRenderer,setDirections(selectedMode);
-    })
-    .catch((e) => window.alert("Directions request failed due to " + status));
-  }
+                {location: {lat: 49.205, lng: -122.892}} //Beach
