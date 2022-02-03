@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>  
+<head>
+    <title>Night Activities in Surrey, BC</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <style>
+        #map {
+        height: 100%;
+        z-index: 1;
+        }
+        
+        html,
+        body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        }
+        
+        #title {
+            position: absolute;
+            top: 5px;
+            left: 35%;
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            padding: 5px;
+            z-index: 5;
+            background-color: rgba(240,248,255,0.6) ;
+            padding: 5px;
+            border: 1px solid rgb(0, 0, 0);
+        }
+
+    </style>
+    <script>
+
+function initMap() {
+    // const directionsService = new google.maps.directionsService();
+    // const directionsRenderer = new google.maps.directionsRenderer();
+    const map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 49.188, lng: -122.848 }, 
+        zoom: 13,
+        mapTypeId: "terrain",
+// Night mode from https://developers.google.com/maps/documentation/javascript/examples/style-array    
+    styles: [
+      { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
+      { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
+      { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
+      {
+        featureType: "administrative.locality",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#d59563" }],
+      },
+      {
+        featureType: "poi",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#d59563" }],
+      },
+      {
+        featureType: "poi.park",
+        elementType: "geometry",
+        stylers: [{ color: "#263c3f" }],
+      },
+      {
+        featureType: "poi.park",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#6b9a76" }],
+      },
+      {
+        featureType: "road",
+        elementType: "geometry",
+        stylers: [{ color: "#38414e" }],
+      },
+      {
+        featureType: "road",
+        elementType: "geometry.stroke",
+        stylers: [{ color: "#212a37" }],
+      },
+      {
+        featureType: "road",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#9ca5b3" }],
+      },
+      {
+        featureType: "road.highway",
+        elementType: "geometry",
+        stylers: [{ color: "#746855" }],
+      },
+      {
+        featureType: "road.highway",
+        elementType: "geometry.stroke",
+        stylers: [{ color: "#1f2835" }],
+      },
+      {
+        featureType: "road.highway",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#f3d19c" }],
+      },
+      {
+        featureType: "transit",
+        elementType: "geometry",
+        stylers: [{ color: "#2f3948" }],
+      },
+      {
+        featureType: "transit.station",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#d59563" }],
+      },
+      {
+        featureType: "water",
+        elementType: "geometry",
+        stylers: [{ color: "#17263c" }],
+      },
+      {
+        featureType: "water",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#515c6d" }],
+      },
+      {
+        featureType: "water",
+        elementType: "labels.text.stroke",
+        stylers: [{ color: "#17263c" }],
+      },
+    ],
+});
+    // directionsRenderer.setMap(map);
+
+//Content for the pop up window
+const A1contentString =
+        '<div id="content">' +
+        '<div id="siteNotice">' +
+        "</div>" + 
+        '<h1 id="firstHeading" class="firstHeading">A1 Coffee & Donair</h1>' +
+        '<div id="bodyContent">' +
+        "<p>Grab a late dinner with an order of the #17 special fries</p>" +
+        "</div>" +
+        "</div>";
+//Creates infowindow
+    const A1infowindow = new google.maps.InfoWindow({
+        content: A1contentString,
+    });
+//Creates marker
+    const A1marker = new google.maps.Marker({
+        position: {lat: 49.201, lng: -122.812},
+        map,
+        title: "A1 Donair",
+        label: "B",
+    });
+//Enables pop up info window
+    A1marker.addListener("click", () => {
+        A1infowindow.open({
+        anchor: A1marker,
+        map,
+        shouldFocus: false,
+        });
+    });
+
+    const BcontentString =
+        '<div id="content">' +
+        '<div id="siteNotice">' +
+        "</div>" + 
+        '<h1 id="firstHeading" class="firstHeading">Bonfire Beach</h1>' +
+        '<div id="bodyContent">' +
+        "<p>Head to the beach under the bridge and light a bonfire under the stars</p>" +
+        "</div>" +
+        "</div>";
+
+    const Binfowindow = new google.maps.InfoWindow({
+        content: BcontentString,
+    });
+
+    const Bmarker = new google.maps.Marker({
+        position: {lat: 49.205, lng: -122.892},
+        map,
+        title: "Bonfire Beach",
+        label: "C"
+    });
+
+    Bmarker.addListener("click", () => {
+        Binfowindow.open({
+        anchor: Bmarker,
+        map,
+        shouldFocus: false,
+        });
+    });
+
+const TcontentString =
+        '<div id="content">' +
+        '<div id="siteNotice">' +
+        "</div>" + 
+        '<h1 id="firstHeading" class="firstHeading">The Taphouse</h1>' +
+        '<div id="bodyContent">' +
+        "<p>After a long night of dancing with friends</p>" +
+        "</div>" +
+        "</div>";
+
+    const Tinfowindow = new google.maps.InfoWindow({
+        content: TcontentString,
+    });
+
+    const Tmarker = new google.maps.Marker({
+        position: {lat: 49.188, lng: -122.797},
+        map,
+        title: "The Taphouse",
+        label: "A",
+    });
+
+    Tmarker.addListener("click", () => {
+        Tinfowindow.open({
+        anchor: Tmarker,
+        map,
+        shouldFocus: false,
+        });
+    });
+
+
+}
+// Tried to get a polyline showing a route between all 3 points
+// function calcRoute() {
+//   var start = document.getElementById('start').value;
+//   var end = document.getElementById('end').value;
+//   var request = {
+//     origin: {lat: 49.201, lng: -122.812},
+//     destination: {lat: 49.205, lng: -122.892},
+//     waypoints: {lat: 49.201, lng: -122.812},
+//     travelMode: 'DRIVING'
+//   };
+//   directionsService.route(request, function(result, status) {
+//     if (status == 'OK') {
+//       directionsRenderer.setDirections(result);
+//     }
+//   });
+// }
+
+    </script>
+
+</head>
+<body>
+<!--Based on https://developers.google.com/maps/documentation/javascript/examples/directions-travel-modes#maps_directions_travel_modes-html-->      
+    <div id="title">
+        <h1>A Night Out in Surrey, BC</h1>
+    </div>    
+    <div id="map"></div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE&callback=initMap&v=weekly"
+    defer>
+    </script>
+</body>
+</html>
